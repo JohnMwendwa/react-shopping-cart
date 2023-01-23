@@ -33,7 +33,7 @@ export const ShoppingCartProvider = ({
 
   const increaseCartQuantity = (id: number) => {
     setCartItems((currentItems) => {
-      if (currentItems.find((item) => item.id === id) === null) {
+      if (currentItems.find((item) => item.id === id) == null) {
         return [...currentItems, { id, quantity: 1 }];
       } else {
         return currentItems.map((item) => {
