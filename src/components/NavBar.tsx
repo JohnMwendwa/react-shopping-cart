@@ -17,12 +17,21 @@ const navigation = [
 
 export default function NavBar() {
   return (
-    <header>
+    <header className="shadow-md flex items-center justify-between mx-auto py-4 px-4 sm:px-6 lg:px-8 max-w-7xl  w-full">
       <nav>
-        <ul>
+        <ul className="flex items-baseline space-x-4">
           {navigation.map((navItem) => (
             <li key={navItem.name}>
-              <NavLink to={navItem.href}>{navItem.name}</NavLink>
+              <NavLink
+                to={navItem.href}
+                className={({ isActive }) =>
+                  isActive
+                    ? "outline outline-blue-600 px-3 py-2 "
+                    : "px-3 py-2 hover:outline hover:bg-blue-600 hover:text-white"
+                }
+              >
+                {navItem.name}
+              </NavLink>
             </li>
           ))}
         </ul>
