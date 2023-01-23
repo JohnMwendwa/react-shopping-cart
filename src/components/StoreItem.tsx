@@ -1,3 +1,4 @@
+import { useShoppingCartContext } from "../context/shoppingCartContext";
 import { formatCurrency } from "../utils/formatCurrency";
 
 interface StoreItemProps {
@@ -8,7 +9,14 @@ interface StoreItemProps {
 }
 
 export default function StoreItem({ id, name, price, imgUrl }: StoreItemProps) {
-  const quantity = 0;
+  const {
+    getItemQuantity,
+    increaseCartQuantity,
+    decreaseCartQuantity,
+    removeFromCart,
+  } = useShoppingCartContext();
+  const quantity = getItemQuantity(id);
+
   return (
     <div className="w-max-[300px] h-full border rounded-md">
       <img
@@ -25,24 +33,36 @@ export default function StoreItem({ id, name, price, imgUrl }: StoreItemProps) {
         </div>
         <div className="mt-auto">
           {quantity === 0 ? (
-            <button className="w-full rounded-sm bg-blue-700 text-white py-1">
+            <button
+              className="w-full rounded-sm bg-blue-700 text-white py-1"
+              onClick={() => increaseCartQuantity(id)}
+            >
               + Add To Cart
             </button>
           ) : (
             <div className="flex items-center flex-col gap-2">
               <div className="flex items-center justify-center gap-2">
-                <button className="flex justify-center items-center bg-blue-700 w-7 h-7 rounded-md text-white">
+                <button
+                  className="flex justify-center items-center bg-blue-700 w-7 h-7 rounded-md text-white"
+                  onClick={() => decreaseCartQuantity(id)}
+                >
                   -
                 </button>
                 <div>
                   <span className="text-lg font-medium">{quantity}</span> in
                   cart
                 </div>
-                <button className="flex  justify-center items-center bg-blue-700 w-7 h-7 rounded-md text-white  ">
+                <button
+                  className="flex  justify-center items-center bg-blue-700 w-7 h-7 rounded-md text-white"
+                  onClick={() => increaseCartQuantity(id)}
+                >
                   +
                 </button>
               </div>
-              <button className="bg-red-600 rounded-md px-2 py-1 text-white">
+              <button
+                className="bg-red-600 rounded-md px-2 py-1 text-white"
+                onClick={() => removeFromCart(id)}
+              >
                 Remove
               </button>
             </div>
