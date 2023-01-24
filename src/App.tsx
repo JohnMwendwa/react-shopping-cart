@@ -6,15 +6,17 @@ import Home from "./pages/Home";
 import About from "./pages/About";
 import Store from "./pages/Store";
 
+const BASE_PATH = "/react-shopping-cart";
+
 function App() {
   return (
     <>
       <ShoppingCartProvider>
         <NavBar />
         <Routes>
-          <Route path="/" element={<Home />} />
-          <Route path="/about" element={<About />} />
-          <Route path="/store" element={<Store />} />
+          <Route path={BASE_PATH} element={<Home />} />
+          <Route path={`${BASE_PATH}/about`} element={<About />} />
+          <Route path={`${BASE_PATH}/store`} element={<Store />} />
         </Routes>
       </ShoppingCartProvider>
     </>
