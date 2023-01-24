@@ -1,5 +1,7 @@
 import { useShoppingCartContext } from "../context/shoppingCartContext";
+import { formatCurrency } from "../utils/formatCurrency";
 import CartItem from "./CartItem";
+import products from "../data/store-data.json";
 
 export default function ShoppingCart() {
   const { cartItems, closeCart } = useShoppingCartContext();
@@ -22,6 +24,15 @@ export default function ShoppingCart() {
         {cartItems.map((item) => (
           <CartItem key={item.id} {...item} />
         ))}
+      </div>
+      <div className="text-end font-bold text-xl py-2 px-3 border border-double border-black">
+        Total :{" "}
+        {formatCurrency(
+          cartItems.reduce((total, item) => {
+            const product = products.find((p) => p.id === item.id);
+            return total + (product?.price || 0) * item.quantity;
+          }, 0)
+        )}
       </div>
     </div>
   );
