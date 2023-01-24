@@ -33,7 +33,9 @@ export default function CartItem({ id, quantity }: CartItemProps) {
         <span> {formatCurrency(item.price * quantity)}</span>
         <button
           onClick={() => removeFromCart(id)}
-          className="border text-red-500 font-extrabold px-2 py-1 rounded-md ml-2"
+          className="border border-gray-300 text-red-500 font-extrabold px-2 py-1 rounded-md ml-2"
+          title="remove item from cart"
+          aria-label="remove item from cart"
         >
           &#10761;
         </button>
