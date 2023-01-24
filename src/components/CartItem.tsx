@@ -13,19 +13,17 @@ export default function CartItem({ id, quantity }: CartItemProps) {
   if (item == null) return null;
 
   return (
-    <div className="flex justify-between items-center w-full border-2">
-      <div className="flex">
+    <div className="flex justify-between items-center w-full border-2 px-4 py-3">
+      <div className="flex items-center">
         <img
           src={item.imgUrl}
           alt={item.name}
-          width="125px"
-          height="75px"
-          className="rounded-md object-cover"
+          className="rounded-md object-cover w-[125px] h-[75px]"
         />
 
-        <div>
+        <div className="ml-3">
           <div>
-            <span>{item.name}</span>
+            <span className="font-medium text-xl">{item.name}</span>
             {quantity > 1 && <span> x {quantity}</span>}
           </div>
           <div>{formatCurrency(item.price)}</div>
@@ -33,7 +31,12 @@ export default function CartItem({ id, quantity }: CartItemProps) {
       </div>
       <div>
         {formatCurrency(item.price * quantity)}
-        <button onClick={() => removeFromCart(id)}>&#10761;</button>
+        <button
+          onClick={() => removeFromCart(id)}
+          className="border text-red-500 font-extrabold px-2 py-1 rounded-md ml-2"
+        >
+          &#10761;
+        </button>
       </div>
     </div>
   );
