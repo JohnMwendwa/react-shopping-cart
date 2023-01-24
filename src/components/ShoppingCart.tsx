@@ -4,7 +4,7 @@ import CartItem from "./CartItem";
 import products from "../data/store-data.json";
 
 export default function ShoppingCart() {
-  const { cartItems, closeCart } = useShoppingCartContext();
+  const { cartItems, closeCart, cartQuantity } = useShoppingCartContext();
   return (
     <div className="absolute min-h-screen w-full max-w-md top-0 right-0 bg-gray-100 px-4 py-3">
       <div className="relative mb-2">
@@ -25,15 +25,17 @@ export default function ShoppingCart() {
           <CartItem key={item.id} {...item} />
         ))}
       </div>
-      <div className="text-end font-bold text-xl py-2 px-3 border border-double border-black">
-        Total :{" "}
-        {formatCurrency(
-          cartItems.reduce((total, item) => {
-            const product = products.find((p) => p.id === item.id);
-            return total + (product?.price || 0) * item.quantity;
-          }, 0)
-        )}
-      </div>
+      {cartQuantity > 0 && (
+        <div className="text-end font-bold text-xl py-2 px-3 border border-double border-black">
+          Total :{" "}
+          {formatCurrency(
+            cartItems.reduce((total, item) => {
+              const product = products.find((p) => p.id === item.id);
+              return total + (product?.price || 0) * item.quantity;
+            }, 0)
+          )}
+        </div>
+      )}
     </div>
   );
 }
