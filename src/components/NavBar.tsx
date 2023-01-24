@@ -1,18 +1,20 @@
 import { NavLink } from "react-router-dom";
 import { useShoppingCartContext } from "../context/shoppingCartContext";
 
+const BASE_PATH = "/react-shopping-cart";
+
 const navigation = [
   {
     name: "Home",
-    href: "/",
+    href: `${BASE_PATH}/`,
   },
   {
     name: "About",
-    href: "/about",
+    href: `${BASE_PATH}/about`,
   },
   {
     name: "Store",
-    href: "/store",
+    href: `${BASE_PATH}/store`,
   },
 ];
 
