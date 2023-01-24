@@ -18,20 +18,20 @@ export default function StoreItem({ id, name, price, imgUrl }: StoreItemProps) {
   const quantity = getItemQuantity(id);
 
   return (
-    <div className="w-max-[300px] h-full border rounded-md">
+    <div className="flex flex-col w-max-[300px] h-full border rounded-md ">
       <img
         src={imgUrl}
         alt={name}
         className="rounded-t-md h-[200px] object-cover w-full"
       />
-      <div className="flex flex-col  px-6 py-4 gap-4">
+      <div className="flex flex-col  justify-between flex-1 px-6 py-4  gap-4 ">
         <div className="flex justify-between align-baseline">
           <span className="font-bold text-lg ">{name}</span>
           <span className="font-medium text-md text-gray-500">
             {formatCurrency(price)}
           </span>
         </div>
-        <div className="mt-auto">
+        <div className="mt-auto  ">
           {quantity === 0 ? (
             <button
               className="w-full rounded-sm bg-blue-700 text-white py-1"
