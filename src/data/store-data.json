@@ -1,9 +1,9 @@
 [
   {
     "id": 1,
-    "name": "Book",
-    "price": 1999,
-    "imgUrl": "/images/book.jpg"
+    "name": "Range Rover",
+    "price": 8999000,
+    "imgUrl": "/images/range.jpeg"
   },
   {
     "id": 2,
@@ -13,14 +13,38 @@
   },
   {
     "id": 3,
-    "name": "Banana",
-    "price": 105,
-    "imgUrl": "/images/banana.jpg"
+    "name": "G wagon",
+    "price": 7999000,
+    "imgUrl": "/images/g-wagon.jpeg"
   },
   {
     "id": 4,
-    "name": "Car",
-    "price": 1200000,
-    "imgUrl": "/images/car.jpg"
+    "name": "Mercedes",
+    "price": 4999000,
+    "imgUrl": "/images/mercedes.jpeg"
+  },
+  {
+    "id": 5,
+    "name": "Wine Glasses",
+    "price": 849,
+    "imgUrl": "/images/wine-glass.jpeg"
+  },
+  {
+    "id": 6,
+    "name": "Coffe Table",
+    "price": 13500,
+    "imgUrl": "/images/table.jpeg"
+  },
+  {
+    "id": 7,
+    "name": "Sofa",
+    "price": 65000,
+    "imgUrl": "/images/sofa.jpeg"
+  },
+  {
+    "id": 8,
+    "name": "Novels",
+    "price": 1999,
+    "imgUrl": "/images/novels.jpeg"
   }
 ]
