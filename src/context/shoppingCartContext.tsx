@@ -1,5 +1,7 @@
 import { useContext, createContext, ReactNode, useState } from "react";
 
+import ShoppingCart from "../components/ShoppingCart";
+
 interface ShoppingCartContextProps {
   getItemQuantity: (id: number) => number;
   increaseCartQuantity: (id: number) => void;
@@ -95,6 +97,7 @@ export const ShoppingCartProvider = ({
       }}
     >
       {children}
+      {isOpen && <ShoppingCart />}
     </ShoppingCartContext.Provider>
   );
 };
