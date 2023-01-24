@@ -14,7 +14,9 @@ export default function ShoppingCart() {
         </h1>
         <button
           onClick={closeCart}
-          className="absolute top-0 right-0 border-2 text-red-500 font-extrabold px-2  text-lg rounded-md"
+          className="absolute top-0 right-0 border-2  border-red-500 text-red-500 font-extrabold px-2  text-lg rounded-md"
+          aria-label="close shopping cart"
+          title="close shopping cart"
         >
           {" "}
           &#10761;
