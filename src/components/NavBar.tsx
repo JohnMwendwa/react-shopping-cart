@@ -44,7 +44,7 @@ export default function NavBar() {
         </nav>
         {cartQuantity > 0 && (
           <button
-            className="w-10 h-10 fill-blue-700 rounded-full outline outline-1 outline-gray-400 p-3 relative"
+            className="w-10 h-10 fill-blue-700 rounded-full outline outline-1 outline-gray-400 p-3 relative hover:outline-blue-600 hover:ring-4"
             onClick={openCart}
             aria-label="open shopping cart"
             title="open shopping cart"
