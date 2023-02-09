@@ -18,6 +18,7 @@ export default function CartItem({ id, quantity }: CartItemProps) {
         <img
           src={item.imgUrl}
           alt={item.name}
+          loading="lazy"
           className="rounded object-cover w-[125px] h-[75px]"
         />
 
